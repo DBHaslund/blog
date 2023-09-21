@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import DOMPurify from 'dompurify';
 
 const Post = (props: wpPost) => {
@@ -5,8 +6,14 @@ const Post = (props: wpPost) => {
 
   return (
     <div className='border'>
-      <h3 className='underline'>{props.title.rendered}</h3>
-      <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(props.excerpt.rendered) }} />
+      <Link href={`posts/${props.slug}`}>
+        <h3 className='underline'>{props.title.rendered}</h3>
+      </Link>
+      <p
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(props.excerpt.rendered),
+        }}
+      />
     </div>
   );
 };

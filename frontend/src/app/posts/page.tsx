@@ -17,8 +17,6 @@ const Posts = () => {
     fetchPosts();
   }, [getPosts]);
 
-  // console.log(posts);
-
   return (
     <section>
       {posts.map((post) => (
