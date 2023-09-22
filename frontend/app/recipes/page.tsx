@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 
 import { getRecipes } from '../_utils/wordpress';
-import Recipe from '../_components/Content/Recipe';
+import RecipeExcerpt from '../_components/Content/RecipeExcerpt';
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([] as wpRecipe[]);
@@ -17,7 +17,7 @@ const Recipes = () => {
   }, [getRecipes]);
 
   return <section>{recipes.map((recipe) => (
-    <Recipe key={recipe.id} {...recipe} />
+    <RecipeExcerpt key={recipe.id} {...recipe} />
   ))}</section>
 }
 

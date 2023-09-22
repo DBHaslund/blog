@@ -1,18 +1,21 @@
-'use client';
+'use client'
+
 import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+
 import DOMPurify from 'dompurify';
 
 import { getRecipe } from '@/app/_utils/wordpress';
 
-const RecipePage = () => {
+
+const Recipe = () => {
   const [recipe, setRecipe] = useState({} as wpRecipe);
   const [cover, setCover] = useState('' as string);
 
   const path: string = usePathname().slice(9);
 
-  useEffect(() => {
+ useEffect(() => {
     const fetchRecipe = async () => {
       const data: wpRecipe = await getRecipe(path);
       setRecipe(data);
@@ -21,11 +24,10 @@ const RecipePage = () => {
     fetchRecipe();
   }, [getRecipe]);
 
-
   
   const content =
-  Object.keys(recipe).length !== 0 ? (
-    <>
+    Object.keys(recipe).length !== 0 ? (
+      <>
         <main>
           <h1>{recipe.title.rendered}</h1>
           <p>{recipe.author}</p>
@@ -35,29 +37,23 @@ const RecipePage = () => {
             width={300}
             height={200}
             alt={recipe.acm_fields.cover.alt_text as string}
-            />
+          />
           <p
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(recipe.acm_fields.ingredientList),
             }}
-            />
+          />
           <p
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(recipe.acm_fields.instructions),
             }}
-            />
+          />
         </main>
       </>
     ) : (
       <p>Loading...</p>
-      );
+    );
+    return <>{content}</>
+}
 
-  console.log(recipe);
-  return (
-    <>
-      {content}
-    </>
-  );
-};
-
-export default RecipePage;
+export default Recipe;

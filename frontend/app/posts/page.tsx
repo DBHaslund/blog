@@ -1,9 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-import { getPosts } from '../_utils/wordpress';
+import { getPosts } from '@/app/_utils/wordpress';
 
-import Post from '../_components/Content/Post';
+import PostExcerpt from '@/app/_components/Content/PostExcerpt';
 
 const Posts = () => {
   const [posts, setPosts] = useState([] as wpPost[]);
@@ -20,7 +20,7 @@ const Posts = () => {
   return (
     <section>
       {posts.map((post) => (
-        <Post key={post.id} {...post} />
+        <PostExcerpt key={post.id} {...post} />
       ))}
     </section>
   );

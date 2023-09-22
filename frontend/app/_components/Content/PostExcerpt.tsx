@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import DOMPurify from 'dompurify';
 
-const Post = (props: wpPost) => {
+const PostExcerpt = (props: wpPost) => {
   console.log(props);
 
   return (
@@ -18,4 +18,4 @@ const Post = (props: wpPost) => {
   );
 };
 
-export default Post;
+export default PostExcerpt;

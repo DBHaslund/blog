@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import DOMPurify from 'dompurify';
 
-const Recipe = (props: wpRecipe) => {
+const RecipeExcerpt = (props: wpRecipe) => {
   return (
     <div className='border'>
       <Link href={`/recipes/${props.slug}`}>
@@ -14,4 +14,4 @@ const Recipe = (props: wpRecipe) => {
   );
 };
 
-export default Recipe;
+export default RecipeExcerpt;
