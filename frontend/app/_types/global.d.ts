@@ -60,6 +60,7 @@ declare global {
     template: string;
     acm_fields: {
       name: string;
+      description: string;
       cover: {
         caption: {
           rendered: string;

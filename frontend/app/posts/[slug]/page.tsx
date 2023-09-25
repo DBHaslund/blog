@@ -1,41 +1,29 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
-import DOMPurify from 'dompurify';
+import { notFound } from 'next/navigation';
+import Post from '@/app/_components/Content/Post';
+import { getPost, getSlugs } from '@/app/_utils/wordpress';
 
-import { getPost } from '@/app/_utils/wordpress';
+interface Props {
+  params: {
+    slug: string;
+  };
+}
 
-const PostPage = () => {
-  const [post, setPost] = useState({} as wpPost);
-  const path: string = usePathname().slice(7);
-  console.log(post);
+const PostPage = async ({ params: { slug } }: Props) => {
+  const post = await getPost(slug);
+  if (!post) {
+    notFound();
+  }
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      const data: wpPost = await getPost(path);
-      setPost(data);
-      console.log(data);
-    };
-    fetchPost();
-  }, [getPost]);
+  return (
+    <>
+      <Post {...post}/>
+    </>
+  );
+};
 
-  const content =
-    Object.keys(post).length !== 0 ? (
-      <>
-        <h1>{post.title.rendered}</h1>
-        <p>{post.author}</p>
-        <p>{post.date}</p>
-        <p
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(post.content.rendered),
-          }}
-        />
-      </>
-    ) : (
-      <p>Loading...</p>
-    );
-
-  return <main>{content}</main>;
+export const generateStaticParams = async () => {
+  const postSlugs = await getSlugs('post');
+  return postSlugs;
 };
 
 export default PostPage;
