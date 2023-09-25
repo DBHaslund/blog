@@ -2,13 +2,7 @@ import { notFound } from 'next/navigation';
 import Post from '@/app/_components/Content/Post';
 import { getPost, getSlugs } from '@/app/_utils/wordpress';
 
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
-const PostPage = async ({ params: { slug } }: Props) => {
+const PostPage = async ({ params: { slug } }: Slug) => {
   const post = await getPost(slug);
   if (!post) {
     notFound();
@@ -27,3 +21,11 @@ export const generateStaticParams = async () => {
 };
 
 export default PostPage;
+
+export const generateMetadata = async ({ params: { slug } }: Slug) => {
+  const post = await getPost(slug);
+
+  return {
+    title: post.title.rendered
+  }
+}

@@ -1,14 +1,9 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Recipe from '@/app/_components/Content/Recipe';
 import { getRecipe, getSlugs } from '@/app/_utils/wordpress';
 
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
-const RecipePage = async ({ params: { slug } }: Props) => {
+const RecipePage = async ({ params: { slug } }: Slug) => {
   const recipe = await getRecipe(slug);
   if (!recipe) {
     notFound();
@@ -27,3 +22,11 @@ export const generateStaticParams = async () => {
 };
 
 export default RecipePage;
+
+export const generateMetadata = async ({ params: { slug } }: Slug) => {
+  const recipe = await getRecipe(slug);
+
+  return {
+    title: recipe.title.rendered
+  }
+}

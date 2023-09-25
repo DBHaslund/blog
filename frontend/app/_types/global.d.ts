@@ -128,4 +128,8 @@ declare global {
       media: Object;
     };
   }
+  
+  interface Slug {
+    params: { slug: string };
+  }
 }
