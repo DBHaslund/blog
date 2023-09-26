@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Recipe from '@/app/_components/Content/Recipe';
 import { getRecipe, getSlugs } from '@/app/_utils/wordpress';

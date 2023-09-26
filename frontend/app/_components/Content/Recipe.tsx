@@ -2,10 +2,7 @@
 import Image from 'next/image';
 import DOMPurify from 'dompurify';
 
-
-const Recipe = ({ ...recipe }: wpRecipe) => {
-  console.log(recipe);
- 
+const Recipe = ({ ...recipe }: wpRecipe) => { 
   return (
   
       <main>

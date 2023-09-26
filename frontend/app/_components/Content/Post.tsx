@@ -1,10 +1,7 @@
 'use client';
 import DOMPurify from 'dompurify';
 
-
 const Post = ({ ...post }: wpPost) => {
-  console.log(post);
-
   return (
   
       <main>
