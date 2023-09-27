@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import DOMPurify from 'dompurify';
 
 const Recipe = ({ ...recipe }: wpRecipe) => { 
   return (
@@ -17,12 +16,12 @@ const Recipe = ({ ...recipe }: wpRecipe) => {
         />
         <p
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(recipe.acm_fields.ingredientList),
+            __html: recipe.acm_fields.ingredientList,
           }}
         />
         <p
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(recipe.acm_fields.instructions),
+            __html: recipe.acm_fields.instructions,
           }}
         />
       </main> 

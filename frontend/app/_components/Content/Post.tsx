@@ -1,6 +1,3 @@
-'use client';
-import DOMPurify from 'dompurify';
-
 const Post = ({ ...post }: wpPost) => {
   return (
   
@@ -10,7 +7,7 @@ const Post = ({ ...post }: wpPost) => {
         <p>{post.date}</p>
         <p
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(post.content.rendered),
+            __html: post.content.rendered,
           }}
         />
       </main> 
