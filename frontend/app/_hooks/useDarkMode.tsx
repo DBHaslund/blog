@@ -26,7 +26,6 @@ const useDarkMode = () => {
 
   useEffect(() => {
     const root = window.document.documentElement;
-
     root.classList.remove('light');
     root.classList.remove('dark');
     root.classList.add(theme);
