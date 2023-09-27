@@ -2,27 +2,31 @@
 import { useEffect, useState } from 'react';
 
 const useDarkMode = () => {
-  const [theme, setTheme] = useState(
+  const [theme, setTheme] = useState('');
+
+  
+  useEffect(() => {
+    const root = window.document.documentElement;
+
     localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ? 'dark'
+    (!('theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ? setTheme('dark')
       : localStorage.theme === 'light' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: light)').matches)
-      ? 'light'
-      : 'dark' 
-  );
+        (!('theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: light)').matches)
+      ? setTheme('light')
+      : setTheme('dark');
 
-  const root = window.document.documentElement;
-
-
-  localStorage.setItem('theme', theme);
-  root.classList.remove('light');
-  root.classList.remove('dark');
-  root.classList.add(theme);
+    localStorage.setItem('theme', theme);
+    root.classList.remove('light');
+    root.classList.remove('dark');
+    root.classList.add(theme);
+  }, []);
 
   useEffect(() => {
+    const root = window.document.documentElement;
+    
     root.classList.remove('light');
     root.classList.remove('dark');
     root.classList.add(theme);
