@@ -10,7 +10,7 @@ const PostPage = async ({ params: { slug } }: Slug) => {
 
   return (
     <>
-      <Post {...post}/>
+      <Post {...post} />
     </>
   );
 };
@@ -26,6 +26,6 @@ export const generateMetadata = async ({ params: { slug } }: Slug) => {
   const post = await getPost(slug);
 
   return {
-    title: post.title.rendered
-  }
-}
+    title: post.title.rendered,
+  };
+};

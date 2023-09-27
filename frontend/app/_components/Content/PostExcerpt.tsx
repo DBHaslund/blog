@@ -1,6 +1,6 @@
-'use client';
 import Link from 'next/link';
 import Card from '../UI/Card';
+import { sanitize } from 'isomorphic-dompurify';
 
 const PostExcerpt = ({ ...posts }: wpPost) => {
   return (
@@ -10,7 +10,7 @@ const PostExcerpt = ({ ...posts }: wpPost) => {
       </Link>
       <div
         dangerouslySetInnerHTML={{
-          __html: posts.excerpt.rendered,
+          __html: sanitize(posts.excerpt.rendered),
         }}
       />
     </Card>

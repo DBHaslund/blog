@@ -7,7 +7,7 @@ const Recipes = async () => {
   return (
     <section>
       {recipes.map((recipe) => (
-          <RecipeExcerpt key={recipe.id} {...recipe} />        
+        <RecipeExcerpt key={recipe.id} {...recipe} />
       ))}
     </section>
   );

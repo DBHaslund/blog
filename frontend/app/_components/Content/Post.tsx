@@ -1,3 +1,5 @@
+import { sanitize } from 'isomorphic-dompurify';
+
 const Post = ({ ...post }: wpPost) => {
   return (
   
@@ -7,7 +9,7 @@ const Post = ({ ...post }: wpPost) => {
         <p>{post.date}</p>
         <p
           dangerouslySetInnerHTML={{
-            __html: post.content.rendered,
+            __html: sanitize(post.content.rendered),
           }}
         />
       </main> 

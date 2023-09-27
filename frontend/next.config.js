@@ -11,8 +11,13 @@ const nextConfig = {
         hostname: `${process.env.BASE_URL}`,
         port: '',
         pathname: '/wp-content/uploads/*',
-      },]
-  }
-}
+      },
+    ],
+  },
+  webpack: (config) => {
+    config.externals = [...config.externals, 'canvas', 'jsdom'];
+    return config;
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
