@@ -2,6 +2,7 @@ export {};
 
 declare global {
   interface wpPost {
+    _links: { author: { [href: string] } };
     id: number;
     date: string;
     date_gmt: string;
@@ -40,6 +41,7 @@ declare global {
   }
 
   interface wpRecipe {
+    _links: { author: { [href: string] } };
     id: number;
     date: string;
     date_gmt: string;
@@ -128,7 +130,7 @@ declare global {
       media: Object;
     };
   }
-  
+
   interface Slug {
     params: { slug: string };
   }

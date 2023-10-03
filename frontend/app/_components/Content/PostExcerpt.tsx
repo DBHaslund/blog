@@ -1,19 +1,26 @@
 import Link from 'next/link';
 import Card from '../UI/Card';
 import { sanitize } from 'isomorphic-dompurify';
+import { getDate } from '@/app/_utils/utils';
 
-const PostExcerpt = ({ ...posts }: wpPost) => {
+const PostExcerpt = ({ ...post }: wpPost) => {
+  const date = getDate(post.date)
+
   return (
-    <Card>
-      <Link href={`posts/${posts.slug}`}>
-        <h3 className=''>{posts.title.rendered}</h3>
+    <div className='md:w-[30%]'>
+      <Link href={`posts/${post.slug}`} >
+        <Card className='hover:opacity-80'>
+          <h3 className='text-lg font-semibold border-b mb-2 pb-2 text-center'>{post.title.rendered}</h3>
+          <div
+            className='line-clamp-[16]'
+            dangerouslySetInnerHTML={{
+              __html: sanitize(post.excerpt.rendered),
+            }}
+          />
+          <p className='text-center border-t mt-2 pt-2'>{date}</p>
+        </Card>
       </Link>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: sanitize(posts.excerpt.rendered),
-        }}
-      />
-    </Card>
+    </div>
   );
 };
 

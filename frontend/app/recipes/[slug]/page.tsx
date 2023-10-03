@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import Recipe from '@/app/_components/Content/Recipe';
 import { getRecipe, getSlugs } from '@/app/_utils/wordpress';
+import Container from '@/app/_components/UI/Container';
+import Card from '@/app/_components/UI/Card';
 
 const RecipePage = async ({ params: { slug } }: Slug) => {
   const recipe = await getRecipe(slug);
@@ -9,9 +11,11 @@ const RecipePage = async ({ params: { slug } }: Slug) => {
   }
 
   return (
-    <>
-      <Recipe {...recipe}/>
-    </>
+    <Container className='w-4/5 m-auto'>
+      <Card>
+        <Recipe {...recipe} />
+      </Card>
+    </Container>
   );
 };
 
@@ -26,6 +30,6 @@ export const generateMetadata = async ({ params: { slug } }: Slug) => {
   const recipe = await getRecipe(slug);
 
   return {
-    title: recipe.title.rendered
-  }
-}
+    title: recipe.title.rendered,
+  };
+};

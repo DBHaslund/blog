@@ -3,25 +3,107 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --fg: #333;
+  --dark-fg: #fff;
+  --bg-start: #a9a9a9;
+  --bg-end: #fff;
+  --dark-bg-start: #2a2a2a;
+  --dark-bg-end: #151515;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.light {
+  color: var(--fg);
+  background-attachment: fixed;
+  background-image: radial-gradient(ellipse at bottom right, #fff, #a9a9a9 40%);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.dark {
+  color: var(--dark-fg);
+  background-attachment: fixed;
+  background-image: radial-gradient(
+    ellipse at bottom right,
+    #6a6a6a,
+    #2a2a2a 40%
+  );
+}
+
+.dmSwitch {
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  display: flex;
+  color: #fff;
+  background-color: #32a3b1;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dmSwitch::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  background-color: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 25px;
+  transition: 300ms ease all;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+.dmSwitch.active {
+  background-color: orange;
+}
+
+.dmSwitch.active::after {
+  right: 0;
+  left: unset;
+}
+
+.dmSwitch span {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  font-size: 1.75rem;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+.hamburger-button {
+  margin-top: 2rem;
+  background-color: transparent;
+  --button-color: #111;
+  overflow: hidden;
+}
+
+.hamburger-button .hamburger {
+  transition: 1s;
+}
+
+.hamburger-button[aria-expanded='true'] .hamburger {
+  translate: 5px -5px;
+  rotate: 0.125turn;
+}
+
+.hamburger-button .line {
+  transition: 800ms;
+  stroke-dasharray: 60 31 60 300;
+}
+
+.hamburger-button[aria-expanded='true'] .line {
+  stroke-dasharray: 60 100 60 300;
+  stroke-dashoffset: -90;
+}
+
+.menu {
+  transition: all 500ms ease-out;
+  top: -400px;
+}
+
+.menu[aria-expanded=true] {
+  transform: translateY(400px);
 }

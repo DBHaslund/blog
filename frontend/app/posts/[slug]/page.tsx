@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import Post from '@/app/_components/Content/Post';
 import { getPost, getSlugs } from '@/app/_utils/wordpress';
+import Container from '@/app/_components/UI/Container';
+import Card from '@/app/_components/UI/Card';
 
 const PostPage = async ({ params: { slug } }: Slug) => {
   const post = await getPost(slug);
@@ -9,9 +11,11 @@ const PostPage = async ({ params: { slug } }: Slug) => {
   }
 
   return (
-    <>
-      <Post {...post} />
-    </>
+    <Container className='w-4/5 m-auto'>
+      <Card>
+        <Post {...post} />
+      </Card>
+    </Container>
   );
 };
 
