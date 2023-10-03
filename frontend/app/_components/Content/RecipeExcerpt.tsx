@@ -4,10 +4,10 @@ import { sanitize } from 'isomorphic-dompurify';
 
 const RecipeExcerpt = ({ ...recipe }: wpRecipe) => {
   return (
-    <div className='md:w-3/12'>
+    <div className='md:w-[30%]'>
       <Link href={`/recipes/${recipe.slug}`} className='hover:opacity-80'>
         <Card className=''>
-          <h3 className='underline'>{recipe.title.rendered}</h3>
+          <h3 className='text-lg font-semibold border-b mb-2 pb-2 text-center'>{recipe.title.rendered}</h3>
           <p
             className='line-clamp-[16]'
             dangerouslySetInnerHTML={{

@@ -7,9 +7,9 @@ const Home = () => {
   return (
     <main>
       <Container className='w-4/5 m-auto'>
-        <Link href='/posts' className='hover:opacity-80'>Posts</Link>
+        <Link href='/posts' className='hover:opacity-80 text-3xl font-semibold border-b'>Posts</Link>
         <Posts />
-        <Link href='/recipes' className='hover:opacity-80'>Recipes</Link>
+        <Link href='/recipes' className='hover:opacity-80 text-3xl font-semibold border-b'>Recipes</Link>
         <Recipes />
       </Container>
     </main>
