@@ -25,7 +25,9 @@ export const getRecipes = async () => {
 
 export const getRecipe = async (slug: string) => {
   const recipes = await getRecipes();
-  const recipeArray = recipes.filter((recipe: wpRecipe) => recipe.slug === slug);
+  const recipeArray = recipes.filter(
+    (recipe: wpRecipe) => recipe.slug === slug
+  );
   const recipe = recipeArray.length > 0 ? recipeArray[0] : null;
   return recipe as wpRecipe;
 };

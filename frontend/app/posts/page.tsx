@@ -1,6 +1,6 @@
 import { getPosts } from '@/app/_utils/wordpress';
-import PostExcerpt from '@/app/_components/Content/PostExcerpt';
 import Container from '../_components/UI/Container';
+import PostList from '../_components/Content/PostList';
 
 const Posts = async () => {
   const posts: wpPost[] = await getPosts();
@@ -8,9 +8,7 @@ const Posts = async () => {
   return (
     <section>
       <Container className=''>
-      {posts.map((post) => (
-        <PostExcerpt key={post.id} {...post} />
-      ))}
+        <PostList posts={posts} />
       </Container>
     </section>
   );
