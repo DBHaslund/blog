@@ -107,3 +107,26 @@
 .menu[aria-expanded=true] {
   transform: translateY(400px);
 }
+
+.sortingSwitch {
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  color: #333;
+  background-color: #a9a9a9;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.sortingSwitch .sortDown {
+  color: #fff;
+}
+
+.sortingSwitch.active .sortUp {
+  color: #fff;
+}
+
+.sortingSwitch.active .sortDown {
+  color: #333;
+}

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa6';
 
 const ThemeSwitch = ({ className }: { className?: string }) => {
-  const [switchActive, setSwitchActive] = useState('dmSwitch');
+  const [switchActive, setSwitchActive] = useState<string>('dmSwitch');
   const [colorTheme, setTheme] = useDarkMode();
 
   useEffect(() => {

@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import PostExcerpt from '@/app/_components/Content/PostExcerpt';
+import SortingSwitch from '../UI/SortingSwitch';
 
 interface Posts {
   posts: wpPost[];
@@ -31,15 +32,13 @@ const PostList = (posts: Posts) => {
   return (
     <>
       <div className='w-full flex justify-end'>
-        <button onClick={sortList} className='w-1/12 mx-4 border'>
-          Sort
-        </button>
+        <SortingSwitch key={sorting} sortList={sortList} sorting={sorting} className='mx-4'/>
         <input
           type='text'
           value={query}
           onChange={(e: any) => setQuery(e.target.value)}
           placeholder='Search...'
-          className='w-2/12 mr-6 border p-1'
+          className='w-[20%] min-w-[125px] mr-6 border p-1'
         />
       </div>
       {postList

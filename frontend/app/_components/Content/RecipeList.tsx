@@ -17,7 +17,7 @@ const RecipeList = (recipes: Recipe) => {
           value={query}
           onChange={(e: any) => setQuery(e.target.value)}
           placeholder='Search...'
-          className='w-2/12 mr-6 border p-1'
+          className='w-[20%] min-w-[125px] mr-6 border p-1'
         />
       </div>
       {recipes.recipes
