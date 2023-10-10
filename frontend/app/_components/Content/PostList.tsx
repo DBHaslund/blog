@@ -38,7 +38,7 @@ const PostList = (posts: Posts) => {
           value={query}
           onChange={(e: any) => setQuery(e.target.value)}
           placeholder='Search...'
-          className='w-[20%] min-w-[125px] mr-6 border p-1'
+          className='w-[20%] min-w-[125px] mr-6 border p-1 outline-none'
         />
       </div>
       {postList

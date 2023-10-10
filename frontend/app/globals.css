@@ -130,7 +130,4 @@
 
 .sortingSwitch.active .sortDown {
   color: #333;
-  position: absolute;
-  top: 5px;
-
 }
