@@ -11,8 +11,6 @@ const PostList = (posts: Posts) => {
   const [sorting, setSorting] = useState<string>('newest');
   const [query, setQuery] = useState<string>('');
 
-  // console.log(postList)
-
   const sortList = () => {
     if (sorting === 'newest') {
       setSorting('oldest');
@@ -40,7 +38,8 @@ const PostList = (posts: Posts) => {
           type='text'
           value={query}
           onChange={(e: any) => setQuery(e.target.value)}
-          className='w-2/12 mr-6 border'
+          placeholder='Search...'
+          className='w-2/12 mr-6 border p-1'
         />
       </div>
       {postList

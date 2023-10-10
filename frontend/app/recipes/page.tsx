@@ -1,6 +1,7 @@
 import { getRecipes } from '../_utils/wordpress';
 import RecipeExcerpt from '../_components/Content/RecipeExcerpt';
 import Container from '../_components/UI/Container';
+import RecipeList from '../_components/Content/RecipeList';
 
 const Recipes = async () => {
   const recipes: wpRecipe[] = await getRecipes();
@@ -8,9 +9,7 @@ const Recipes = async () => {
   return (
     <section>
       <Container className='md:flex'>
-        {recipes.map((recipe) => (
-          <RecipeExcerpt key={recipe.id} {...recipe} />
-        ))}
+      <RecipeList recipes={recipes} />
       </Container>
     </section>
   );
