@@ -109,18 +109,19 @@
 }
 
 .sortingSwitch {
-  border: none;
-  border-radius: 25px;
+  font-size: 1.5rem;
   cursor: pointer;
   outline: none;
   position: relative;
   color: #333;
-  background-color: #a9a9a9;
+  background: #a9a9a9;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .sortingSwitch .sortDown {
   color: #fff;
+  position: absolute;
+  top: 5px;
 }
 
 .sortingSwitch.active .sortUp {
@@ -129,4 +130,7 @@
 
 .sortingSwitch.active .sortDown {
   color: #333;
+  position: absolute;
+  top: 5px;
+
 }

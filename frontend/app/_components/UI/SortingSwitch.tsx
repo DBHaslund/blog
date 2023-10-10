@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-  FaSortUp,
-  FaSortDown,
-} from 'react-icons/fa';
+import { FaSortUp, FaSortDown } from 'react-icons/fa';
 
 interface Props {
   sortList: () => void;
@@ -22,16 +19,14 @@ const SortingSwitch = ({ sortList, sorting, className }: Props) => {
     }
   }, [sorting]);
 
-  const classes = `${switchActive} ${className} items-center`;
+  const classes = `${switchActive} ${className} items-center dark:shadow-[0_0_2px_2px_rgba(255,255,255,0.4)] rounded-lg`;
 
   return (
     <button onClick={sortList} className={classes}>
-        <i className='sortUp'>
-          <FaSortUp />
-        </i>
-        <i className='sortDown'>
-          <FaSortDown />
-        </i>
+      <i>
+        <FaSortUp className='sortUp' />
+        <FaSortDown className='sortDown ' />
+      </i>
     </button>
   );
 };
