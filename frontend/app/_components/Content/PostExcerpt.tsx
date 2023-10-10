@@ -10,9 +10,9 @@ const PostExcerpt = ({ ...post }: wpPost) => {
     <div className='md:w-[30%]'>
       <Link href={`posts/${post.slug}`} >
         <Card className='hover:opacity-80'>
-          <h3 className='text-lg font-semibold border-b mb-2 pb-2 text-center'>{post.title.rendered}</h3>
+          <h3 className='text-lg font-semibold border-b mb-2 pb-2 text-center px-2'>{post.title.rendered}</h3>
           <div
-            className='line-clamp-[16]'
+            className='line-clamp-[16] px-2'
             dangerouslySetInnerHTML={{
               __html: sanitize(post.excerpt.rendered),
             }}

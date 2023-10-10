@@ -9,7 +9,7 @@ interface Posts {
 const PostList = (posts: Posts) => {
   const [postList, setPostList] = useState<wpPost[]>(posts.posts);
   const [sorting, setSorting] = useState<string>('newest');
-  // const [inputValue, setInputValue] = useState<string>('');
+  const [query, setQuery] = useState<string>('');
 
   // console.log(postList)
 
@@ -30,24 +30,32 @@ const PostList = (posts: Posts) => {
     }
   };
 
-  // const searchHandler = (e: any) => {
-  //   setInputValue(e.target.value)
-  //   const result = postList.filter((post) => post.title.rendered.includes(inputValue))
-  //   console.log(result)
-  //   setPostList(result)
-  // }
-
   return (
     <>
       <div className='w-full flex justify-end'>
         <button onClick={sortList} className='w-1/12 mx-4 border'>
           Sort
         </button>
-        {/* <input type="text" value={inputValue} onChange={(e: any) => searchHandler(e)} className='w-2/12 mr-6 border' /> */}
+        <input
+          type='text'
+          value={query}
+          onChange={(e: any) => setQuery(e.target.value)}
+          className='w-2/12 mr-6 border'
+        />
       </div>
-      {postList.map((post) => (
-        <PostExcerpt key={post.id} {...post} />
-      ))}
+      {postList
+        .filter((post) => {
+          if (query === '') {
+            return post;
+          } else if (
+            post.title.rendered.toLowerCase().includes(query.toLowerCase())
+          ) {
+            return post;
+          }
+        })
+        .map((post) => (
+          <PostExcerpt key={post.id} {...post} />
+        ))}
     </>
   );
 };
