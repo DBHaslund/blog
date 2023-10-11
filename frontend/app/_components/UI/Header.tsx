@@ -44,7 +44,7 @@ const Header = () => {
       <Portal>
         <nav
           aria-expanded={ariaExpanded}
-          className='absolute w-96 left-1/2 ml-[-12rem] text-center text-2xl font-bold menu top-0 bg-[#a9a9a9] shadow-card dark:shadow-darkCard pt-60 pb-8'
+          className='absolute w-96 left-1/2 ml-[-12rem] text-center text-2xl font-bold menu top-0 bg-[#a9a9a9] dark:bg-[#333] shadow-card dark:shadow-darkCard pt-60 pb-8'
         >
           <Menu ariaExpanded expandHandler={expandHandler} />
         </nav>
