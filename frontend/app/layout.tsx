@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Providers from './_utils/providers';
 import Header from './_components/UI/Header';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -12,11 +13,13 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang='en' className={inter.className}>
+    <html lang='en' className={inter.className} suppressHydrationWarning>
       <body>
-        <Header />
-        {children}
-        <div id='portal'/>
+        <Providers>
+          <Header />
+          {children}
+          <div id='portal' />
+        </Providers>
       </body>
     </html>
   );

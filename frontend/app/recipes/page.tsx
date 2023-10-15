@@ -1,5 +1,4 @@
 import { getRecipes } from '../_utils/wordpress';
-import RecipeExcerpt from '../_components/Content/RecipeExcerpt';
 import Container from '../_components/UI/Container';
 import RecipeList from '../_components/Content/RecipeList';
 

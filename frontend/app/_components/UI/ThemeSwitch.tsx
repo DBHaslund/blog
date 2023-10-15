@@ -1,28 +1,30 @@
 'use client';
-import useDarkMode from '@/app/_hooks/useDarkMode';
+import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa6';
 
 const ThemeSwitch = ({ className }: { className?: string }) => {
+  const [mounted, setMounted] = useState(false);
   const [switchActive, setSwitchActive] = useState<string>('dmSwitch');
-  const [colorTheme, setTheme] = useDarkMode();
+  const { theme, resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
-    if (colorTheme === 'light') {
-      setSwitchActive('dmSwitch');
-    }
-    if (colorTheme === 'dark') {
+    setMounted(true);
+    if (theme === 'dark' || resolvedTheme === 'dark') {
       setSwitchActive('dmSwitch active');
     }
-  }, [colorTheme]);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   const switchHandler = () => {
-    if (colorTheme === 'light') {
-      setTheme('dark');
-      setSwitchActive('dmSwitch');
-    }
-    if (colorTheme === 'dark') {
+    if (theme === 'dark' || resolvedTheme === 'dark') {
       setTheme('light');
+      setSwitchActive('dmSwitch');
+    } else {
+      setTheme('dark');
       setSwitchActive('dmSwitch active');
     }
   };

@@ -9,7 +9,6 @@ import Portal from './Portal';
 
 const Header = () => {
   const [ariaExpanded, setAriaExpanded] = useState<boolean>(false);
-  const [menuVis, setMenuVis] = useState<boolean>(false);
 
   const expandHandler = () => {
     if (!ariaExpanded) {
@@ -40,7 +39,7 @@ const Header = () => {
       >
         <Hamburger color='black' width='100' height='100' />{' '}
       </button>
-      <ThemeSwitch className='md:mr-8' />
+      <div className='w-[112px]'><ThemeSwitch className='md:mr-8' /></div>
       <Portal>
         <nav
           aria-expanded={ariaExpanded}

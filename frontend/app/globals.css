@@ -9,6 +9,14 @@
   --bg-end: #fff;
   --dark-bg-start: #2a2a2a;
   --dark-bg-end: #151515;
+  background-color: #a9a9a9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: #2a2a2a;
+    color: var(--dark-fg)
+  }
 }
 
 .light {
@@ -104,7 +112,7 @@
   top: -400px;
 }
 
-.menu[aria-expanded=true] {
+.menu[aria-expanded='true'] {
   transform: translateY(400px);
 }
 

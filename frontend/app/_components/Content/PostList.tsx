@@ -15,14 +15,14 @@ const PostList = (posts: Posts) => {
   const sortList = () => {
     if (sorting === 'newest') {
       setSorting('oldest');
-      const sorted = postList.toSorted(function (a, b) {
+      const sorted = postList.toSorted((a, b) => {
         return a.date > b.date;
       });
       setPostList(sorted);
     }
     if (sorting === 'oldest') {
       setSorting('newest');
-      const sorted = postList.toSorted(function (a, b) {
+      const sorted = postList.toSorted((a, b) => {
         return a.date < b.date;
       });
       setPostList(sorted);
