@@ -7,9 +7,16 @@ const Recipe = ({ ...recipe }: wpRecipe) => {
   const date = getDate(recipe.date);
   return (
     <article className='px-12 pb-12'>
-      <h1 className='text-center text-2xl font-semibold m-4 mb-12'>{recipe.title.rendered}</h1>
+      <h1 className='text-center text-2xl font-semibold m-4 mb-12'>
+        {recipe.title.rendered}
+      </h1>
       <div className='flex justify-center gap-20 mb-8 py-4 border-y'>
-        <Link href={recipe._links.author[0].href} className='underline hover:opacity-80'><p>{recipe.author}</p></Link>
+        <Link
+          href={recipe._links.author[0].href}
+          className='underline hover:opacity-80'
+        >
+          <p>{recipe.author}</p>
+        </Link>
         <p className=''>{date}</p>
       </div>
       <Image

@@ -1,4 +1,4 @@
-const baseURL = process.env.NEXT_PUBLIC_JSON_URL as string;
+const baseURL = process.env.NEXT_PUBLIC_WP_URL as string;
 
 interface keys {
   slug: string;

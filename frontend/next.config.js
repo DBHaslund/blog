@@ -4,11 +4,11 @@ const nextConfig = {
     serverActions: true,
   },
   images: {
-    domains: [`${process.env.BASE_URL}`],
+    domains: [`${process.env.WP_URL}`],
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: `${process.env.BASE_URL}`,
+        hostname: `${process.env.WP_URL}`,
         port: '',
         pathname: '/wp-content/uploads/*',
       },

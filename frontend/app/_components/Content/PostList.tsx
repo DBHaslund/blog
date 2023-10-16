@@ -16,14 +16,14 @@ const PostList = (posts: Posts) => {
     if (sorting === 'newest') {
       setSorting('oldest');
       const sorted = postList.toSorted((a, b) => {
-        return a.date > b.date;
+        return (a.date > b.date) as any;
       });
       setPostList(sorted);
     }
     if (sorting === 'oldest') {
       setSorting('newest');
       const sorted = postList.toSorted((a, b) => {
-        return a.date < b.date;
+        return (a.date < b.date) as any;
       });
       setPostList(sorted);
     }
@@ -32,7 +32,12 @@ const PostList = (posts: Posts) => {
   return (
     <>
       <div className='w-full flex justify-end'>
-        <SortingSwitch key={sorting} sortList={sortList} sorting={sorting} className='mx-4'/>
+        <SortingSwitch
+          key={sorting}
+          sortList={sortList}
+          sorting={sorting}
+          className='mx-4'
+        />
         <input
           type='text'
           value={query}

@@ -1,7 +1,6 @@
 import { sanitize } from 'isomorphic-dompurify';
 import { getPost } from '@/app/_utils/wordpress';
 
-
 const Intro = async () => {
   const post = await getPost('intro');
 

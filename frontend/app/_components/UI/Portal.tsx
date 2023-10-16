@@ -9,7 +9,12 @@ const Portal = ({ children }: { children: React.ReactNode }) => {
     setMounted(true);
   }, []);
 
-  return mounted ? createPortal(<>{children}</>, document.getElementById('portal') as HTMLElement) : null;
+  return mounted
+    ? createPortal(
+        <>{children}</>,
+        document.getElementById('portal') as HTMLElement
+      )
+    : null;
 };
 
 export default Portal;

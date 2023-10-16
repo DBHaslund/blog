@@ -3,7 +3,7 @@ import { sanitize } from 'isomorphic-dompurify';
 import Link from 'next/link';
 
 const Post = ({ ...post }: wpPost) => {
-  const date = getDate(post.date)
+  const date = getDate(post.date);
 
   return (
     <article className='px-12 pb-12'>

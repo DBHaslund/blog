@@ -39,7 +39,9 @@ const Header = () => {
       >
         <Hamburger color='black' width='100' height='100' />{' '}
       </button>
-      <div className='w-[112px]'><ThemeSwitch className='md:mr-8' /></div>
+      <div className='w-[112px]'>
+        <ThemeSwitch className='md:mr-8' />
+      </div>
       <Portal>
         <nav
           aria-expanded={ariaExpanded}
