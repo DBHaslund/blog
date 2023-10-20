@@ -11,10 +11,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MARIADB_ROOT_PASSWORD: example
-      - MARIADB_DATABASE: wordpress_db
-      - MARIADB_USER: user
-      - MARIADB_PASSWORD: password
+      MARIADB_ROOT_PASSWORD: example
+      MARIADB_DATABASE: wordpress_db
+      MARIADB_USER: user
+      MARIADB_PASSWORD: password
 
   wp:
     container_name: backend
@@ -29,20 +29,19 @@ services:
       - "./backend/wordpress:/var/www/html"
       - "./backend/plugins:/var/www/html/wp-content/plugins"
     environment:
-      - WORDPRESS_DB_HOST: db:3306
-      - WORDPRESS_DB_USER: user
-      - WORDPRESS_DB_PASSWORD: password
-      - WORDPRESS_DB_NAME: wordpress_db
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: user
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: wordpress_db
 
   frontend:
     container_name: frontend
-    command: bash -c 'npm i && npm start'
+    command: bash -c 'npm i && npm run dev'
     expose:
         - '3000'
     image: node
     ports:
         - '3000:3000'
-    user: node
     volumes:
         - ./frontend:/frontend
     working_dir: /frontend
