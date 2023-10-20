@@ -17,7 +17,3 @@ jspm_packages/
 # Next.js build output
 .next
 out
-
-# Other
-backend/
-db/

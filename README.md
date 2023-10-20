@@ -2,4 +2,5 @@
 ## Blog project
 ```
 
-Built as a docker container, running headless wordpress as the backend, mysql db and react/nextjs frontend.
+Built as a docker container, running wordpress as the backend, 
+mariadb and react/nextjs frontend.
