@@ -1,6 +1,1 @@
 FROM mariadb:latest
-
-ENV MARIADB_ROOT_PASSWORD='example'
-ENV MARIADB_DATABASE='wordpress_db'
-ENV MARIADB_USER='user'
-ENV MARIADB_PASSWORD='password'

@@ -10,6 +10,11 @@ services:
       - './db/mysql:/var/lib/mysql'
     ports:
       - 3306:3306
+    environment:
+      - MARIADB_ROOT_PASSWORD: example
+      - MARIADB_DATABASE: wordpress_db
+      - MARIADB_USER: user
+      - MARIADB_PASSWORD: password
 
   wp:
     container_name: backend
@@ -23,12 +28,15 @@ services:
     volumes:
       - "./backend/wordpress:/var/www/html"
       - "./backend/plugins:/var/www/html/wp-content/plugins"
+    environment:
+      - WORDPRESS_DB_HOST: db:3306
+      - WORDPRESS_DB_USER: user
+      - WORDPRESS_DB_PASSWORD: password
+      - WORDPRESS_DB_NAME: wordpress_db
 
   frontend:
     container_name: frontend
-    build:
-      dockerfile: DockerfileFE
-      context: ./frontend
+    command: bash -c 'npm i && npm start'
     expose:
         - '3000'
     image: node
