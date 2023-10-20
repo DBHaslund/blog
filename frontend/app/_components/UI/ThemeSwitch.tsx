@@ -12,6 +12,9 @@ const ThemeSwitch = ({ className }: { className?: string }) => {
     setMounted(true);
     if (theme === 'dark' || resolvedTheme === 'dark') {
       setSwitchActive('dmSwitch active');
+    } 
+    else {
+      setSwitchActive('dmSwitch');
     }
   }, []);
 
