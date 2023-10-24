@@ -7,9 +7,11 @@ services:
       context: ./db
     image: 'mariadb:latest'
     volumes:
-      - './db/mysql:/var/lib/mysql'
+      - ./db/data.sql:/docker-entrypoint-initdb.d/data.sql
     ports:
       - 3306:3306
+    networks:
+      - wp
     environment:
       MARIADB_ROOT_PASSWORD: example
       MARIADB_DATABASE: wordpress_db
@@ -23,6 +25,8 @@ services:
       context: ./backend
     ports:
       - 80:80
+    networks:
+      - wp
     depends_on:
       - db
     volumes:
@@ -38,10 +42,16 @@ services:
     container_name: frontend
     command: bash -c 'npm i && npm run dev'
     expose:
-        - '3000'
+      - '3000'
     image: node
     ports:
-        - '3000:3000'
+      - '3000:3000'
+    networks:
+      - wp
     volumes:
         - ./frontend:/frontend
     working_dir: /frontend
+    
+networks:
+    wp:
+      driver: bridge
