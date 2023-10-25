@@ -17,12 +17,14 @@ const RecipeExcerpt = ({ ...recipe }: wpRecipe) => {
               __html: sanitize(recipe.acm_fields.description),
             }}
           />
-          <Image
-            src={recipe.acm_fields.cover.source_url}
-            alt={recipe.acm_fields.cover.alt_text}
-            width={300}
-            height={200}
-          />
+          {recipe.acm_fields.cover.source_url && (
+            <Image
+              src={recipe.acm_fields.cover.source_url}
+              alt={recipe.acm_fields.cover.alt_text}
+              width={300}
+              height={200}
+            />
+          )}
         </Card>
       </Link>
     </div>

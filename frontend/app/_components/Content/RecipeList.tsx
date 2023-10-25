@@ -11,13 +11,13 @@ const RecipeList = (recipes: Recipe) => {
 
   return (
     <>
-      <div className='w-full flex justify-end'>
+      <div className='w-full flex justify-center md:justify-end'>
         <input
           type='text'
           value={query}
           onChange={(e: any) => setQuery(e.target.value)}
           placeholder='Search...'
-          className='w-[20%] min-w-[125px] mr-6 border p-1'
+          className='w-[20%] min-w-[125px] md:mr-6 border p-1'
         />
       </div>
       {recipes.recipes

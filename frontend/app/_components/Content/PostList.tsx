@@ -31,7 +31,7 @@ const PostList = (posts: Posts) => {
 
   return (
     <>
-      <div className='w-full flex justify-end'>
+      <div className='w-full flex justify-center md:justify-end'>
         <SortingSwitch
           key={sorting}
           sortList={sortList}
