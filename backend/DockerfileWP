@@ -8,4 +8,11 @@ ENV WORDPRESS_DB_NAME='wordpress_db'
 
 RUN echo "ServerName wp" >> /etc/apache2/apache2.conf
 
-RUN apt-get update
+RUN apt-get -q update && apt-get -qy install netcat
+
+# wp-cli
+RUN curl -sL https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o wp; \
+	chmod +x wp; \
+	mv wp /usr/local/bin/; \
+	mkdir /var/www/.wp-cli; \
+	chown www-data:www-data /var/www/.wp-cli
