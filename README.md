@@ -1,13 +1,14 @@
 
 ## Blog project
-```
 
+```
 Built as a docker container, running wordpress as the backend, 
 mariadb and react/nextjs frontend.
-
-## How to run
 ```
 
+## How to run (doesn't work currently)
+
+```
 git clone https://github.com/DBHaslund/blog.git
 cd .\blog\
 docker-compose up
@@ -23,3 +24,4 @@ You can now access the site through the local link above, or
 the backend through http://localhost/wp-admin/
 User: admin
 Password: admin
+```
