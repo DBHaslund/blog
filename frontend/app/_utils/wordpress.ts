@@ -6,7 +6,8 @@ interface keys {
 
 export const getPosts = async () => {
   const postRes = await fetch(baseURL + '/posts');
-  const posts = await postRes.json();
+  const postArray = await postRes.json();
+  const posts = postArray.filter((post: wpPost) => post.slug !== 'intro')
   return posts as wpPost[];
 };
 
