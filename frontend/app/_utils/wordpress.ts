@@ -4,15 +4,20 @@ interface keys {
   slug: string;
 }
 
-export const getPosts = async () => {
+const getContent = async () => {
   const postRes = await fetch(baseURL + '/posts');
   const postArray = await postRes.json();
+  return postArray;
+}
+
+export const getPosts = async () => {
+  const postArray = await getContent();
   const posts = postArray.filter((post: wpPost) => post.slug !== 'intro')
   return posts as wpPost[];
 };
 
 export const getPost = async (slug: string) => {
-  const posts = await getPosts();
+  const posts = await getContent();
   const postArray = posts.filter((post: wpPost) => post.slug === slug);
   const post = postArray.length > 0 ? postArray[0] : null;
   return post as wpPost;
