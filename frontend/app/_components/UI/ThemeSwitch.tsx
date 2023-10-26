@@ -35,7 +35,7 @@ const ThemeSwitch = ({ className }: { className?: string }) => {
   const classes = `${switchActive} ${className} items-center shadow-card dark:shadow-darkCard z-10`;
 
   return (
-    <button onClick={switchHandler} className={classes}>
+    <button onClick={switchHandler} className={classes} aria-label='Darkmode switch'>
       <span>
         <i>
           <FaSun />

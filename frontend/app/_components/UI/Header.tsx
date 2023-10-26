@@ -35,6 +35,7 @@ const Header = () => {
       <button
         className='hamburger-button mb-8 z-10'
         aria-expanded={ariaExpanded}
+        aria-label='Menu button'
         onClick={expandHandler}
       >
         <Hamburger color='black' width='100' height='100' />{' '}
