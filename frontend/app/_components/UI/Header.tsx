@@ -43,6 +43,7 @@ const Header = () => {
         <ThemeSwitch className='md:mr-8' />
       </div>
       <Portal>
+        {ariaExpanded && <div onClick={expandHandler} className='fixed top-0 left-0 w-full h-full'/>}
         <nav
           aria-expanded={ariaExpanded}
           className='absolute w-96 left-1/2 ml-[-12rem] text-center text-2xl font-bold menu top-0 bg-[#a9a9a9] dark:bg-[#333] shadow-card dark:shadow-darkCard pt-60 pb-8'
