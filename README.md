@@ -5,7 +5,7 @@
 Built as a docker container, running wordpress as the backend, 
 mariadb and react/nextjs frontend.
 ```
-
+<!--
 ## How to run (doesn't work currently)
 
 ```
@@ -25,3 +25,4 @@ the backend through http://localhost/wp-admin/
 User: admin
 Password: admin
 ```
+-->
